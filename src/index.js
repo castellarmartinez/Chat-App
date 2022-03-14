@@ -15,12 +15,10 @@ app.use(express.static(publicDirectoryPath));
 io.on('connection', (socket) => {
    console.log('New WebSocket connection');
 
-   let count = 0;
-   socket.emit('countUpdate', count);
+   socket.emit('message', 'Welcome again!');
 
-   socket.on('increment', () => {
-      count++;
-      io.emit('countUpdate', count);
+   socket.on('userMessage', (message) => {
+      io.emit('message', message);
    })
 });
 
