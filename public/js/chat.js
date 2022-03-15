@@ -10,3 +10,16 @@ document.querySelector('#message-form').addEventListener('submit', (e) => {
    const message = e.target.elements.message.value;
    socket.emit('userMessage', message);
 });
+
+document.querySelector('#send-location').addEventListener('click', () => {
+   if (!navigator.geolocation) {
+      return alert('Geolocation is not suported by your browser');
+   }
+
+   navigator.geolocation.getCurrentPosition(position => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      socket.emit('userPosition', { latitude, longitude });
+   })
+})

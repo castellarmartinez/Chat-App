@@ -20,7 +20,16 @@ io.on('connection', (socket) => {
 
    socket.on('userMessage', (message) => {
       io.emit('message', message);
-   })
+   });
+
+   socket.on('userPosition', ({ latitude, longitude }) => {
+      io.emit('message', 
+         `User position: https://google.com/maps?q=${latitude},${longitude}`);
+   });
+
+   socket.on('disconnect', () => {
+      io.emit('message', 'A user has left!');
+   });
 });
 
 server.listen(port, () => {
