@@ -30,9 +30,10 @@ io.on('connection', (socket) => {
       callback();
    });
 
-   socket.on('userPosition', ({ latitude, longitude }) => {
+   socket.on('userPosition', ({ latitude, longitude }, callback) => {
       io.emit('message', 
          `User position: https://google.com/maps?q=${latitude},${longitude}`);
+      callback();
    });
 
    socket.on('disconnect', () => {
