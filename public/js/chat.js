@@ -8,7 +8,12 @@ document.querySelector('#message-form').addEventListener('submit', (e) => {
    e.preventDefault();
 
    const message = e.target.elements.message.value;
-   socket.emit('userMessage', message);
+   
+   socket.emit('userMessage', message, (error) => {
+      if (error) {
+         return console.log(error);
+      }
+   });
 });
 
 document.querySelector('#send-location').addEventListener('click', () => {
