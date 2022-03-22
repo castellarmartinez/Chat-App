@@ -17,6 +17,9 @@ document.querySelector('#message-form').addEventListener('submit', (e) => {
 
    socket.emit('userMessage', message, (error) => {
       $messageFormButton.removeAttribute('disabled');
+      $messageFormInput.value = '';
+      $messageFormInput.focus();
+
 
       if (error) {
          return console.log(error);
