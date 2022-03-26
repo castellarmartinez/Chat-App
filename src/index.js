@@ -33,17 +33,20 @@ io.on('connection', (socket) => {
 
    socket.on('userMessage', (message, callback) => {
       const filter = new Filter();
+      const user = getUserById(socket.id);
 
       if (filter.isProfane(message)) {
          return callback('Bad words are not allowed in this conversation.');
       }
 
-      io.emit('message', generateMessage(message));
+      io.to(user.room).emit('message', generateMessage(message));
       callback();
    });
 
    socket.on('userPosition', ({ latitude, longitude }, callback) => {
-      io.emit('location',
+      const user = getUserById(socket.id);
+
+      io.to(user.room).emit('location',
          generateMessage(`https://google.com/maps?q=${latitude},${longitude}`));
       callback();
    });
