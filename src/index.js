@@ -24,9 +24,9 @@ io.on('connection', (socket) => {
       if (error) { return callback(error); }
 
       socket.join(user.room);
-      socket.emit('message', generateMessage('Welcome'));
+      socket.emit('message', generateMessage('Welcome', 'Admin'));
       socket.broadcast.to(user.room).
-         emit('message', generateMessage(`${user.username} has joined!`));
+         emit('message', generateMessage(`${user.username} has joined!`, 'Admin'));
 
       callback();
    });
@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
          return callback('Bad words are not allowed in this conversation.');
       }
 
-      io.to(user.room).emit('message', generateMessage(message));
+      io.to(user.room).emit('message', generateMessage(message, user.username));
       callback();
    });
 
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
       const user = getUserById(socket.id);
 
       io.to(user.room).emit('location',
-         generateMessage(`https://google.com/maps?q=${latitude},${longitude}`));
+         generateMessage(`https://google.com/maps?q=${latitude},${longitude}`, user.username));
       callback();
    });
 
@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
 
       if (user) {
          io.to(user.room).emit('message', 
-            generateMessage(`${user.username} has left!`));
+            generateMessage(`${user.username} has left!`, 'Admin'));
       }
    });
 });
