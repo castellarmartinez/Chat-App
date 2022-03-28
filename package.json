@@ -4,7 +4,7 @@
   "description": "App to chat in real time with other users",
   "main": "index.js",
   "scripts": {
-    "run": "node src/index.js",
+    "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
   "keywords": [
