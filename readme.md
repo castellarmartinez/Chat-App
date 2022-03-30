@@ -1,7 +1,7 @@
 # Chat App
 
 This app allows users to enter rooms and chat with other users.
-You can try the app visit this [site](castellar-chat-app.herokuapp.com)
+You can try the app visiting this [site](castellar-chat-app.herokuapp.com)
 
 ## Setup
 
@@ -25,7 +25,7 @@ npm run start
 
 ## Usage
 
-<img src="https://github.com/castellarmartinez/Chat-App/blob/main/images/Join_page.PNG" width=200 align=left>
+<img src="https://github.com/castellarmartinez/Chat-App/blob/main/images/Join_page.PNG" width=200>
 
 #### 1. Enter your nickname (this nickname will be see by others)
 
@@ -33,7 +33,7 @@ npm run start
 
 #### 3. Send messages or location (you need to authorize the browser to be able to send your location)
 
-<img src="https://github.com/castellarmartinez/Chat-App/blob/main/images/Message_input.PNG" width=500 align=left>
+<img src="https://github.com/castellarmartinez/Chat-App/blob/main/images/Message_input.PNG" width=500>
 
 ## Build with
 
