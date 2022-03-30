@@ -1,11 +1,7 @@
 # Chat App
 
 This app allows users to enter rooms and chat with other users.
-<<<<<<< HEAD
 You can try the app visiting this [site](castellar-chat-app.herokuapp.com)
-=======
-You can try the app visit this [site](castellar-chat-app.herokuapp.com)
->>>>>>> 55fac6c3a2b509a27293d9b791903876bc4cfb53
 
 ## Setup
 
